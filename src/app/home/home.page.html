@@ -1,17 +1,10 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Залікова робота. Варіант 3
-    </ion-title>
-  </ion-toolbar>
-  <ion-toolbar>
-    <ion-title>
-      Горобчук Марія КН-31
-    </ion-title>
-  </ion-toolbar>
-  
+<app-header/>
 
-</ion-header>
-<ion-content>
-  
+<ion-content [fullscreen]="true">
+  <app-form (ticketDataSubmitted)="doMainTask($event)"></app-form>
+  <div *ngIf="show_calc">
+    <h4>Результати розрахунків:</h4>
+    <p>Сумарний прибуток: {{totalProfit }}</p>
+    <p *ngFor="let categoryProfit of categoryProfits; let i = index">Прибуток категорії {{ i + 1 }}: {{ categoryProfit }}</p>
+  </div>
 </ion-content>
